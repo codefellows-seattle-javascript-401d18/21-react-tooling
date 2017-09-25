@@ -2,6 +2,7 @@ import './styles/main.scss';
 import React from 'react';
 import ReactDom from 'react-dom';
 
+//A button
 class Button extends React.Component {
   render() {
     return(
@@ -10,6 +11,7 @@ class Button extends React.Component {
   }
 }
 
+//Header
 class Heady extends React.Component {
   render() {
     return (
@@ -20,6 +22,15 @@ class Heady extends React.Component {
   }
 }
 
+//we need to put the text into something
+class Box extends React.Component {
+  render() {return (
+      <article>cow stuff</article>
+    )
+  }
+}
+
+//Our overall app
 class App extends React.Component {
   constructor(props) {
     super(props)
@@ -34,7 +45,9 @@ class App extends React.Component {
 
   handleClick(e) {
     this.setState(prevState => {
-      return { //something }
+      return {
+        <p> {cowsay.think(<p>faker.words.random(120)</p>)} </p>
+        }
     })
   }
 }
@@ -47,14 +60,13 @@ render() {
       //Beats me...
       <pre> {
         this.state
-      }</pre>
+      }
+      </pre>
 
       <Button onClick={this.handleClick}>click me</button>
-      //possibly put cowsay here
-      //something onClick = {this.handleCLick}
     </div>
-  )
-}
+    )
+  }
 }
 
 ReactDom.render(<App />, document.getElementById('root'));
