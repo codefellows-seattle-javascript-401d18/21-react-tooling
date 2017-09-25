@@ -6,7 +6,7 @@ import ReactDom from 'react-dom';
 class Button extends React.Component {
   render() {
     return(
-      <button type="button"></button>
+      <button type="button">Click Me</button>
     );
   }
 }
@@ -57,13 +57,7 @@ class App extends React.Component {
     return (
     <div className ="application">
       <Heady />
-      <Box/>
-        <Button onClick={this.handleClick}>click me</Button>
-      //Beats me...
-      <pre> {
-        this.state
-      }
-      </pre>
+      <Button />
     </div>
     );
   }
