@@ -13,18 +13,18 @@ import ReactDom from 'react-dom';
 //   }
 // }
 
-//A blank cow - I feel like we could use this as a reusable element in various places?
-class Cow extends React.Component {
-  render() {
-    return (
-      cowsay.say({
-        text: '',
-        e: '99',
-        f: 'dragon',
-      })
-    );
-  }
-}
+//A blank cow - I feel like we could just put <Cow
+// class Cow extends React.Component {
+//   render() {
+//     return (
+//       cowsay.say({
+//         text: '',
+//         e: '99',
+//         f: 'dragon',
+//       })
+//     );
+//   }
+// }
 
 
 //Header
