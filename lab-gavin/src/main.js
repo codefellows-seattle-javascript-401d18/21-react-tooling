@@ -28,7 +28,7 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      text: faker.lorem.words(),
+      content: faker.lorem.words(),
       value: 'cow',
     };
 
@@ -39,7 +39,7 @@ class App extends React.Component {
   handleClick(e) {
     this.setState(state => {
       return {
-        text: faker.lorem.words(),
+        content: faker.lorem.words(),
       };
     });
   }
@@ -51,7 +51,7 @@ class App extends React.Component {
 
 
   render() {
-    const cow = cowsay.say({ text: this.state.text , f: this.state.value });
+    const cow = cowsay.say({ text: this.state.content , f: this.state.value });
     return (
       <div>
       <Navbar />
