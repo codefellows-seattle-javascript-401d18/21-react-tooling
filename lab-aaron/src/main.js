@@ -8,7 +8,7 @@ import faker from 'faker';
 class Navbar extends React.Component {
   render() {
     return (
-      <header className="app-header container">
+      <header className="app-header">
         <h1>Generate Lorem</h1>
         <nav>
           <ul>
@@ -25,7 +25,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       content: cowsay.say({
-        text: faker.lorem.paragraphs(3),
+        text: faker.lorem.paragraphs(1),
       }),
     };
 
@@ -36,7 +36,7 @@ class App extends React.Component {
     this.setState( state => {
       return {
         content: cowsay.say({
-          text: faker.lorem.paragraphs(3),
+          text: faker.lorem.paragraphs(1),
         }),
       };
     });
