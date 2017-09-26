@@ -24,7 +24,7 @@ class App extends React.Component {
     return (
       <div>
         <h1> Generate Cowsay Lorem </h1>
-        <button onClick={this.handleClick}> click here! </button>
+        <button onClick={this.handleClick}> Click me! </button>
          <pre> {this.state.content} </pre>
       </div>
     );
