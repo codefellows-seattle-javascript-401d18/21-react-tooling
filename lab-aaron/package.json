@@ -27,7 +27,4 @@
     "faker": "^4.1.0",
     "cowsay-browser": "^1.1.8"
   },
-  "dependencies": {
-    "cowsay": "^1.2.1"
-  }
 }
