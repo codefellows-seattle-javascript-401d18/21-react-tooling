@@ -1,54 +1,56 @@
 import './styles/main.scss';
 import React from 'react';
 import ReactDom from 'react-dom';
-import faker from 'faker';
 import cowsay from 'cowsay-browser';
+import faker from 'faker';
 
 
 class Navbar extends React.Component {
   render() {
     return (
       <header className="app-header container">
-      <h1>Generate Cowsay Lorem</h1>
-      <nav>
-      <ul>
-      <li>button here maybe/?</li>
-      </ul>
-      </nav>
+        <h1>Generate Lorem</h1>
+        <nav>
+          <ul>
+            <li>Press the Button</li>
+          </ul>
+        </nav>
       </header>
     );
   }
 }
-class App extends React.Component {
-  constructor(content) {
-    super(content);
 
+class App extends React.Component {
+  constructor(props) {
+    super(props);
     this.state = {
-      // figure this out?
+      content: cowsay.say({
+        text: faker.lorem.paragraphs(3),
+      }),
     };
 
-    this.handleClick = this.handleClick.bind(this); // not sure about this either
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick(e) {
-    this.setState(prevState => {
-      //figure this out also
+    this.setState( state => {
+      return {
+        content: cowsay.say({
+          text: faker.lorem.paragraphs(3),
+        }),
+      };
     });
   }
 
   render() {
     return (
-      <div className="application">
-      <NavBAr />
-      <p onClick={this.handleClick}>No Clue</p>
-
+      <div className="cowSpeak">
+        <Navbar />
+        <button onClick={this.handleClick}>Make the cow moo</button>
+        <pre>{this.state.content}</pre>
       </div>
-
     );
   }
+}
 
-
-
-
-
-  ReactDom.render(<App />, document.getElementById('root'));
+ReactDom.render(<App />, document.getElementById('root'));
