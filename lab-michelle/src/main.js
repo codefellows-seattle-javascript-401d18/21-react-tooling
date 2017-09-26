@@ -4,14 +4,14 @@ import cowsay from 'cowsay-browser';
 import React from 'react';
 import ReactDom from 'react-dom';
 
-//A button
-class Button extends React.Component {
-  render() {
-    return(
-      <button type="button"></button>
-    );
-  }
-}
+//A button - for some reason my reusable button messes this whole thing up. Weird.
+// class Button extends React.Component {
+//   render() {
+//     return(
+//       <button type="button">click me</button>
+//     );
+//   }
+// }
 
 //A blank cow - I feel like we could use this as a reusable element in various places?
 class Cow extends React.Component {
@@ -52,22 +52,17 @@ class App extends React.Component {
     this.handleClick = this.handleClick.bind(this);
   }
 
-  // handleClick(e) {
-  //   this.setState(prevState => {
-  //     return {count: prevState.count + 1};
-  //   });
-  // }
-
   handleClick(e) {
-    this.setState(currState => {
+    this.setState(prevState => {
       return {
         //cow talks
         // content: <Cow />?
-        content: cowsay.say({
-          text: 'hola!',
-          e: '99',
-          f: 'dragon',
-        }),
+        content:
+          cowsay.say({
+            text: 'hola!',
+            e: '99',
+            f: 'dragon',
+          }),
       };
     });
   }
@@ -76,7 +71,7 @@ class App extends React.Component {
     return (
     <div className ="application">
       <Heady />
-      <Button onClick={this.handleClick}>click me!</Button>
+      <button onClick={this.handleClick}>click me</button>
       <pre>{this.state.content}</pre>
     </div>
     );
