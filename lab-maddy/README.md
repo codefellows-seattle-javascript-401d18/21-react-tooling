@@ -1,12 +1,13 @@
 #### Project description
 
+The goal of this project is to practice working with React and working with webpack to bundle the things we'll need. We're also practicing using sass. 
 
 #### Steps to remember
 1. in terminal- npm run watch
 2. http://localhost:8080/ - right click on this in the terminal and choose open
 3. npm install -D cowsay-browser
 4. npm install -D faker
-5. npm i -D babel
+5. npm i -D babel if not already in the package.json
 
 #### Learning Objectives  
 * students will be able to configure webpack.js to build a web application bundle
