@@ -1,4 +1,6 @@
 import './style/main.scss';
+import cowsay from 'cowsay-browser';
+// import faker from 'faker';
 import React from 'react';
 import ReactDom from 'react-dom';
 
@@ -6,7 +8,7 @@ import ReactDom from 'react-dom';
 class Button extends React.Component {
   render() {
     return(
-      <button type="button">Click Me</button>
+      <button type="button"></button>
     );
   }
 }
@@ -16,11 +18,11 @@ class Cow extends React.Component {
   render() {
     return (
       cowsay.say({
-        text: "",
-        e: "99",
-        f: "dragon",
+        text: '',
+        e: '99',
+        f: 'dragon',
       })
-    )
+    );
   }
 }
 
@@ -43,17 +45,29 @@ class App extends React.Component {
 
     this.state = {
       //Cow hasn't said anything yet, so blank cow
-      content
-      }
+      content: '',
+    };
 
+//I'm going to leave it at "this" but I actually think maybe we need to bind to the button itself??
     this.handleClick = this.handleClick.bind(this);
   }
 
+  // handleClick(e) {
+  //   this.setState(prevState => {
+  //     return {count: prevState.count + 1};
+  //   });
+  // }
+
   handleClick(e) {
-    this.setState(prevState => {
+    this.setState(currState => {
       return {
         //cow talks
-        content: { <Cow />}
+        // content: <Cow />?
+        content: cowsay.say({
+          text: 'hola!',
+          e: '99',
+          f: 'dragon',
+        }),
       };
     });
   }
@@ -62,7 +76,7 @@ class App extends React.Component {
     return (
     <div className ="application">
       <Heady />
-      <Button />
+      <Button onClick={this.handleClick}>click me!</Button>
       <pre>{this.state.content}</pre>
     </div>
     );
