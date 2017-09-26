@@ -45,10 +45,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="cowSpeak">
-      <Navbar />
-        <button onClick={this.handleClick}>Make th cow moo</button>
+        <Navbar />
+        <button onClick={this.handleClick}>Make the cow moo</button>
         <pre>{this.state.content}</pre>
-    </div>
+      </div>
     );
   }
 }
