@@ -53,6 +53,7 @@ build/Release
 # Dependency directories
 node_modules
 jspm_packages
+db
 
 # Optional npm cache directory
 .npm
@@ -72,5 +73,3 @@ Session.vim
 
 # auto-generated tag files
 tags
-
-package-lock.json
