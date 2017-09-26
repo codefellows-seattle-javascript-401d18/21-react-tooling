@@ -8,6 +8,16 @@ $gutter-lg: $gutter-sm * 2;
 body {
   background-color: #01ABAA;
   text-align: center;
+  background-size: cover;
+  background-position: fixed;
+  background-repeat: no-repeat;
+  max-width: 100%;
+}
+main {
+  background-color: #DFDCE3;
+  width: 960px;
+  margin: 0 auto;
+  margin-top: 50px;
 }
 
 .app-header {
@@ -25,6 +35,6 @@ body {
   background: #FEDC3D;
 
   pre {
-    max-width: 75em;
+  max-width: 75em;
   }
 }
