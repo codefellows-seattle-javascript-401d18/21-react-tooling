@@ -29,7 +29,7 @@ class App extends React.Component {
   handleClick(e) {
     this.setState(prevState => {
       return {
-        content: cowsay.say({ text: faker.lorem.words(5), cow:'DRAGON'}),
+        content: cowsay.say({ text: faker.lorem.words(5), cow: `DRAGON`}),
       };
     });
   }
@@ -38,8 +38,15 @@ class App extends React.Component {
     return (
       <div className="application">
         <Navbar />
-        <button onClick={this.handleClick}>Click Me</button>
         <pre> {this.state.content} </pre>
+        <select>
+          <option id="dragon">dragon</option>
+          <option id="dragon-and-cow">dragon-and-cow</option>
+          <option id="head-in">head-in</option>
+          <option id="turtle">turtle</option>
+          <option id="stegosaurus">stegosaurus</option>
+        </select>
+        <button onClick={this.handleClick}>Click Me</button>
       </div>
     );
   }
