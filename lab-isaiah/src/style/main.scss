@@ -3,22 +3,48 @@ $gutter-lg: $gutter-sm * 2;
 
 
 body {
-  background: grey;
+  background: navy;
 }
 
 .application {
-  p {
-    color: #7af;
+  pre {
+    color: lime;
+    border: 5px solid #ccc ;
+    border-radius: 10px;
+    text-align: center;
+    width: 50%;
+    height: 30em;
+    margin: auto;
+    background: black;
+  }
+
+  button {
+    font-weight: 600;
+    width: 20%;
+    display: inline;
+    margin: 10px auto;
 
     &:hover {
       cursor: pointer;
-      color: #fa7;
+      color: #7F00A1;
     }
+  }
+
+  select {
+    width: 20%;
+    margin-right: 3px;
+    margin-left: 30%;
+    align-self: center;
+  }
+
+  option {
+    text-align: center;
   }
 }
 
 .app-header {
   background: #ccc;
+  text-align: center;
 
   nav li {
     list-style: none;
