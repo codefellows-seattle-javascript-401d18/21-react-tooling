@@ -20,33 +20,38 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      content: cowsay.say({ text: 'Hello!', cow: 'DRAGON'}),
+      cows: [],
+      current: '',
+      content: cowsay.say({ text: 'Hey! Click the button or select an option...'}),
     };
 
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(e) {
-    this.setState(prevState => {
-      return {
-        content: cowsay.say({ text: faker.lorem.words(5), cow: `DRAGON`}),
-      };
+  componentWillMount() {
+    cowsay.list((err, cows) => {
+      let current = cows[0];
+      this.setState({ cows, current });
     });
+  }
+
+  handleClick(e) {
+    let current = e.target.value ? e.target.value : this.state.current;
+    let text = faker.hacker.phrase();
+    this.setState({current, content: cowsay.say({ text, f: current })});
   }
 
   render() {
     return (
       <div className="application">
         <Navbar />
-        <pre> {this.state.content} </pre>
-        <select>
-          <option id="dragon">dragon</option>
-          <option id="dragon-and-cow">dragon-and-cow</option>
-          <option id="head-in">head-in</option>
-          <option id="turtle">turtle</option>
-          <option id="stegosaurus">stegosaurus</option>
+        <select onChange={this.handleClick}>
+          {this.state.cows.map((cow, i) => {
+            return <option key={i} value={cow}>{cow}</option>;
+          })}
         </select>
-        <button onClick={this.handleClick}>Click Me</button>
+        <pre> {this.state.content} </pre>
+        <button onClick={this.handleClick}>click to speak</button>
       </div>
     );
   }
