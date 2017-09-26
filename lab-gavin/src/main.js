@@ -10,12 +10,12 @@ class Navbar extends React.Component {
   render() {
     return (
       <header className="app-header container">
-        <h1>Counter App</h1>
+        <h1>What did the cow say</h1>
         <nav>
           <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            <li>The</li>
+            <li>Cow</li>
+            <li>Said</li>
           </ul>
         </nav>
       </header>
@@ -51,6 +51,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
+      <Navbar />
         <h2>Generate Cowsay Lorem</h2>
         <button onClick={this.handleClick}>Tell me what the cow say.</button>
         <pre>{this.state.content}</pre>
