@@ -1,20 +1,15 @@
 import './styles/main.scss'
 import React from 'react'
 import ReactDom from 'react-dom'
+import cowsay from 'cowsay-browser';
+import faker from 'faker';
 
 
 class Navbar extends React.Component {
   render() {
     return (
-      <header className="app-header container">
-        <h1>Counter App</h1>
-        <nav>
-          <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-          </ul>
-        </nav>
+      <header className="cowsay header">
+        <h1>Cowsay React</h1>
       </header>
     )
   }
@@ -26,24 +21,33 @@ class App extends React.Component {
     super(props)
 
     this.state = {
-      count: 0
-    }
+      content: cowsay.say({ text: 'HELLO!' })
+
+    };
 
     this.handleClick = this.handleClick.bind(this)
   }
 
   handleClick(e) {
     this.setState(prevState => {
-      return {count: prevState.count + 1}
-    })
-  }
+      return {
+        content: cowsay.say({
+	      text : faker.lorem.words(),
+	       e : 'oO',
+	       T : 'U '
+       })
+    }
+  });
+}
 
   render() {
     return (
-      <div className="application">
-        <Navbar />
-        <p onClick={this.handleClick}>Counter: {this.state.count}</p>
-      </div>
+      <div>
+      <Navbar />
+        <h3>The Cow Saysssss</h3>
+        <button onClick={this.handleClick}>What does the cow say???</button>
+        <pre>{this.state.content}</pre>
+    </div>
     )
   }
 }
