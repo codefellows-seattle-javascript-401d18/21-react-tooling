@@ -1,19 +1,7 @@
 # First React Assignment
 
-## What we're making
-An application
+## What is it?
+A front-end "application" (kind of a generous word here) for a button that when clicked displays a cowsay ASCII critter saying something. Made using React!
 
-
-Feature Tasks
-
-    create the following component:
-
-App
-
-    should contain the entire application's view and state
-    should have a property on the state called content
-    should create a view with the following display
-        a heading with the title "Generate Cowsay Lorem"
-        a button that displays "click me"
-            onClick the button should generate new content on the app state using cowsay-browser and faker
-        a pre tag that displays the app's state's content
+## How to install it
+Download and npm -i to install the dependencies (there are quite a few!)
