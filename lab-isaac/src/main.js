@@ -1,5 +1,4 @@
 import Cowsay from 'cowsay-browser';
-import {DRAGON} from 'cowsay-browser';
 import Faker from 'faker';
 import './styles/main.scss';
 import React from 'react';
@@ -11,26 +10,32 @@ class App extends React.Component {
 
     this.state = {
       cows: [],
-      current: '',
+      current: 'default',
       content: Cowsay.say({ text: 'select "click me" to generate Lorem Ipsum'}),
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   componentWillMount() {
     Cowsay.list((err, cows) => {
-      let current = cows[0];
-      this.setState({ cows, current});
+      this.setState({ cows });
+    });
+  }
+
+  handleChange(e) {
+    let current = e.target.value;
+    this.setState(prevState => {
+      return {current: {current}};
     });
   }
 
   handleClick(e) {
-    let current = e.target.value;
     let text = Faker.lorem.words(10);
     this.setState(prevState => {
       return {content: Cowsay.say({
         text:`${text}`,
-        f: current,
+        f: this.state.current.current,
       })};
     });
   }
@@ -39,7 +44,7 @@ class App extends React.Component {
     return (
       <div className="application">
         <h1>Generate Cowsay lorem</h1>
-        <select onChange ={this.handleClick}>
+        <select onChange ={this.handleChange}>
           {this.state.cows.map((cow, i) => {
             return <option key= {i} value={cow}>{cow}</option>;
           })}
