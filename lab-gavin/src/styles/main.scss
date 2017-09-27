@@ -1,0 +1,31 @@
+$gutter-sm: 1.5vw;
+$gutter-lg: $gutter-sm * 2;
+
+
+body {
+  background: grey;
+  text-align: center;
+  border: 1px solid black;
+  padding-top: 5vw;
+}
+
+.application {
+  p {
+    color: #7af;
+
+    &:hover {
+      cursor: pointer;
+      color: #fa7;
+    }
+  }
+}
+
+.app-header {
+  background: grey;
+
+  nav li {
+    list-style: none;
+    display: inline;
+    padding: $gutter-lg;
+  }
+}
