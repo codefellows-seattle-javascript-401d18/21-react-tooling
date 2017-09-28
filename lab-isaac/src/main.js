@@ -1,5 +1,4 @@
 import Cowsay from 'cowsay-browser';
-// import {SQUIRREL} from 'cowsay-browser';
 import Faker from 'faker';
 import './styles/main.scss';
 import React from 'react';
@@ -10,14 +9,34 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      content: '',
+      cows: [],
+      current: 'default',
+      content: Cowsay.say({ text: 'select "click me" to generate Lorem Ipsum'}),
     };
     this.handleClick = this.handleClick.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentWillMount() {
+    Cowsay.list((err, cows) => {
+      this.setState({ cows });
+    });
+  }
+
+  handleChange(e) {
+    let current = e.target.value;
+    this.setState(prevState => {
+      return {current: {current}};
+    });
   }
 
   handleClick(e) {
+    let text = Faker.lorem.words(10);
     this.setState(prevState => {
-      return {content: Cowsay.say({text:`${Faker.lorem.words(10)}`})};
+      return {content: Cowsay.say({
+        text:`${text}`,
+        f: this.state.current.current,
+      })};
     });
   }
 
@@ -25,17 +44,16 @@ class App extends React.Component {
     return (
       <div className="application">
         <h1>Generate Cowsay lorem</h1>
+        <select onChange ={this.handleChange}>
+          {this.state.cows.map((cow, i) => {
+            return <option key= {i} value={cow}>{cow}</option>;
+          })}
+        </select>
         <button onClick={this.handleClick}>click me</button>
-        <pre>{this.state.content}</pre>
+        <pre><code>{this.state.content}</code></pre>
       </div>
     );
   }
 }
 
 ReactDom.render(<App />, document.getElementById('root'));
-//Should have a property called content
-//should create a view with the following display
-//a heading with the title "Generate Cowsay Lorem"
-//a button that displays "click me"
-//onClick the button should generate new content on the app state using cowsay-browser and faker
-//a pre tag that displays the app's state's content
