@@ -1,30 +1,8 @@
 import './style/main.scss';
 import cowsay from 'cowsay-browser';
-// import faker from 'faker';
+import faker from 'faker';
 import React from 'react';
 import ReactDom from 'react-dom';
-
-//A button - for some reason my reusable button messes this whole thing up. Weird.
-// class Button extends React.Component {
-//   render() {
-//     return(
-//       <button type="button">click me</button>
-//     );
-//   }
-// }
-
-//A blank cow - I feel like we could just put <Cow
-// class Cow extends React.Component {
-//   render() {
-//     return (
-//       cowsay.say({
-//         text: '',
-//         e: '99',
-//         f: 'dragon',
-//       })
-//     );
-//   }
-// }
 
 
 //Header
@@ -59,7 +37,7 @@ class App extends React.Component {
         // content: <Cow />?
         content:
           cowsay.say({
-            text: 'hola!',
+            text: faker.random.words(5),
             e: '99',
             f: 'dragon',
           }),
